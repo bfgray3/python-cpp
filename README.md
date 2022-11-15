@@ -7,3 +7,4 @@ resources
 * https://stackoverflow.com/questions/5081875/ctypes-beginner
 * https://stackoverflow.com/questions/145270/calling-c-c-from-python
 * https://www.youtube.com/watch?v=YtiPCPtmZrs&list=LL&index=6&ab_channel=MikeShah
+* https://github.com/cmaureir/unleash_cpp
