@@ -9,4 +9,4 @@ $(TARGET):
 	$(CC) $(LDFLAGS) $(CFLAGS) -o $(TARGET) functions.c
 
 clean:
-	rm -rf __pycache__ *.o *.so
+	rm -rf __pycache__ $(TARGET)
