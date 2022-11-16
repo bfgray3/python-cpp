@@ -1,7 +1,7 @@
 .PHONY: clean
 
 CC = gcc
-CFLAGS = -fPIC -pedantic -Wall -Wextra -Wshadow -Werror
+CFLAGS = -fPIC -pedantic -Wall -Wextra -Wshadow -Werror -Wconversion -Wpedantic
 LDFLAGS = -shared
 TARGET = sharedlibrary.so
 
