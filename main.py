@@ -13,13 +13,13 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parser.parse_args()
 
     python_start = time.perf_counter()
-    p = functions.f(args.n)
+    p = functions.f_threads(args.n)
     python_end = time.perf_counter()
     print("python:", python_end - python_start)
 
     c_start = time.perf_counter()
     # TODO: try https://docs.python.org/3/library/ctypes.html#ctypes.PyDLL
-    c = ctypes.CDLL("./sharedlibrary.so").f(args.n)  # no GIL
+    c = ctypes.CDLL("./sharedlibrary.so").f_threads(args.n)  # no GIL
     c_end = time.perf_counter()
     print("c:", c_end - c_start)
 
