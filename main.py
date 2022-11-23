@@ -10,26 +10,34 @@ from python import functions
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("-n", nargs="?", default=20, type=int, choices=range(1, 32))
+    parser.add_argument("--language", choices=("c", "cpp"), required=True)
     args = parser.parse_args()
 
     n = (1 << args.n) - 1
 
-    python_function = functions.f
-    c_function = ctypes.CDLL("./sharedlibrary.so").f
+    dll = ctypes.CDLL(f"./{args.language}.so")
+
+    if args.language == "c":
+        # use single-threaded functions
+        python_function = functions.f
+        dll_function = dll.f
+    else:
+        # use two threads
+        python_function = functions.f_threads
+        dll_function = dll.f_threads
 
     python_start = time.perf_counter()
-    p = python_function(n)
+    p_result = python_function(n)
     python_end = time.perf_counter()
     print("python:", python_end - python_start)
 
-    c_start = time.perf_counter()
+    dll_start = time.perf_counter()
     # TODO: try https://docs.python.org/3/library/ctypes.html#ctypes.PyDLL
-    c = c_function(n)  # no GIL
+    dll_result = dll_function(n)  # no GIL
+    dll_end = time.perf_counter()
+    print("dll:", dll_end - dll_start)
 
-    c_end = time.perf_counter()
-    print("c:", c_end - c_start)
-
-    assert p == c
+    assert p_result == dll_result
 
     return 0
 
