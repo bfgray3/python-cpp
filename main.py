@@ -35,7 +35,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     # TODO: try https://docs.python.org/3/library/ctypes.html#ctypes.PyDLL
     dll_result = dll_function(n)  # no GIL
     dll_end = time.perf_counter()
-    print("dll:", dll_end - dll_start)
+    print(args.language, "dll:", dll_end - dll_start)
 
     assert p_result == dll_result
 
