@@ -1,12 +1,13 @@
 .PHONY: clean
 
-CC = g++
 CFLAGS = -fPIC -pedantic -Wall -Wextra -Wshadow -Werror -Wconversion -Wpedantic
 LDFLAGS = -shared
-TARGET = sharedlibrary.so
 
-$(TARGET):
-	$(CC) $(LDFLAGS) $(CFLAGS) -o $(TARGET) functions.cpp
+c.so:
+	gcc $(LDFLAGS) $(CFLAGS) -o $@ $(wildcard *.c)
+
+cpp.so:
+	g++ $(LDFLAGS) $(CFLAGS) -o $@ $(wildcard *.cpp)
 
 clean:
-	rm -rf __pycache__ $(TARGET)
+	rm -rf __pycache__ *.so
