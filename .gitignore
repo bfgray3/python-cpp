@@ -1,4 +1,5 @@
 *.o
 *.pyc
 *.so
+results.txt
 venv
