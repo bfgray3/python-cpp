@@ -4,13 +4,13 @@ this is a place for me to play around/learn about using c/c++ from python.
 
 starting at 0 and incrementing a bunch of times:
 
-python: 66.35344479899504
-c dll: 1.1295300799974939
+* python: 66.35344479899504
+* c dll: 1.1295300799974939
 
 doing the above twice, once each in two threads:
 
-python: 141.43267440299678
-cpp dll: 1.350391801999649
+* python: 141.43267440299678
+* cpp dll: 1.350391801999649
 
 ## resources
 
