@@ -17,14 +17,10 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     dll = ctypes.CDLL(f"./{args.language}.so")
 
-    if args.language == "c":
-        # use single-threaded functions
-        python_function = functions.f
-        dll_function = dll.f
-    else:
-        # use two threads
-        python_function = functions.f_threads
-        dll_function = dll.f_threads
+    # use single thread in c and same function in 2 threads for c++
+    func = "f" if args.language == "c" else "f_threads"
+    python_function = getattr(functions, func)
+    dll_function = getattr(dll, func)
 
     python_start = time.perf_counter()
     p_result = python_function(n)
