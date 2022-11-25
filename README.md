@@ -12,6 +12,14 @@ doing the above twice, once each in two threads:
 * python: 141.43267440299678
 * cpp dll: 1.350391801999649
 
+## usage
+
+to run the experiment, use the following:
+
+```bash
+make
+```
+
 ## resources
 
 * https://stackoverflow.com/questions/64478880/how-to-pass-this-numpy-array-to-c-with-ctypes
