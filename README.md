@@ -14,7 +14,7 @@ doing the above twice, once each in two threads:
 
 ## usage
 
-to run the experiment, use the following:
+to run the experiment, use the following.  `results.txt` will be written to the working directory.
 
 ```bash
 make
