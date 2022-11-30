@@ -25,7 +25,6 @@ repos:
     -   id: clang-format
     -   id: clang-tidy
     -   id: cppcheck
-    -   id: include-what-you-use
 -   repo: https://github.com/psf/black
     rev: 22.10.0
     hooks:
